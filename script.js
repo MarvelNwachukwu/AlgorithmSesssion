@@ -1,30 +1,48 @@
-let sentence = `hey there, motherfucker I hope you fuck yourself over and get shit in your eyes, you cocksucker bitch ass nigga`; 
-let newSentence = '';
+  const FullDate = new Date();
+  console.log(FullDate)
 
-let curseWord = [
-  'motherfucker',
-  'fuck',
-  'shit',
-  'cocksucker',
-  'bitch',
-  'ass',
-  'nigga'
-];
+  const MonthList = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'July',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ]
 
-let newArray = sentence.split(' ');
-console.log(newArray)
+  const DayList = [
+    'Sun',
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat',
+    
+  ]
 
-newArray.forEach((item) => { 
-  curseWord.forEach((i) => { 
-    if (i  === item) { 
-      newArray[newArray.indexOf(item)] = '***'
-    }
-    else {
-    }
-  })
-})
+  setInterval(() => {
+    const FullDate = new Date();
+    const Second = FullDate.getSeconds();
+    const MonthName = MonthList[FullDate.getMonth()];
+    const TodayDate = FullDate.getDate();
+    const Year = FullDate.getFullYear();
+    const Hour = FullDate.getHours();
+    const Minute = FullDate.getMinutes();
+    const day = DayList[FullDate.getDay()];
+
+    const DateText = `${day}, ${TodayDate} ${MonthName} ${Year}`;
+    const currentTime =Hour +':' + Minute + ':' + Second;
+
+    document.querySelector('h3').innerHTML = currentTime;
+    document.querySelector('p').innerHTML = DateText;
+  }, 1000);
 
 
-
-//  console.log(sentence.split(' '))
- console.log(newArray)
+  
